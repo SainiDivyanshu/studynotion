@@ -91,7 +91,7 @@ function CourseDetails() {
   }
 
   const {
-    _id: course_id,
+    // _id: course_id,
     courseName,
     courseDescription,
     thumbnail,
