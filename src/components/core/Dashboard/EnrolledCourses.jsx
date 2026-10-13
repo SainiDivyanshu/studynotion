@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import ProgressBar from "@ramonak/react-progress-bar"
 // import { BiDotsVerticalRounded } from "react-icons/bi"
 import { useSelector } from "react-redux"
