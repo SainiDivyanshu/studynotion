@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import copy from 'copy-to-clipboard';
@@ -50,7 +50,7 @@ function CourseDetailsCard({course, setConfirmationModal, handleBuyCourse}) {
         <div>
             <img 
                 src={ThumbnailImage}
-                alt='Thumbnail Image'
+                alt='ThumbnailImage'
                 className='max-h-[300px] min-h-[180px] w-[400px] rounded-xl'
             />
             <div>

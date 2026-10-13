@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 
 import Logo1 from "../../../assets/TimeLineLogo/Logo1.svg"
 import Logo2 from "../../../assets/TimeLineLogo/Logo2.svg"
@@ -41,7 +41,9 @@ const TimelineSection = () => {
                         <div className='flex flex-row gap-6' key={index}>
 
                             <div className='w-[50px] h-[50px] bg-white flex items-center'>
-                                <img src={element.Logo} />
+                                <img src={element.Logo} 
+                                    alt="logo"
+                                />
                             </div>
 
                             <div>

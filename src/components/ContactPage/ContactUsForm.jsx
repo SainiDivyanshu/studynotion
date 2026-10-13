@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import  { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 
 import CountryCode from "../../data/countrycode.json"
@@ -23,7 +23,7 @@ const ContactUsForm = () => {
         contactusEndpoint.CONTACT_US_API,
         data
       )
-      // console.log("Email Res - ", res)
+      console.log("Email Res - ", res)
       setLoading(false)
     } catch (error) {
       console.log("ERROR MESSAGE - ", error.message)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Outlet, useParams } from 'react-router-dom';
 import { getFullDetailsOfCourse } from '../services/operations/courseDetailsAPI';
@@ -13,20 +13,25 @@ const ViewCourse = () => {
     const {token} = useSelector((state)=>state.auth);
     const dispatch = useDispatch();
 
-    useEffect(()=> {
-        const setCourseSpecificDetails = async() => {
-              const courseData = await getFullDetailsOfCourse(courseId, token);
-              dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
-              dispatch(setEntireCourseData(courseData.courseDetails));
-              dispatch(setCompletedLectures(courseData.completedVideos));
-              let lectures = 0;
-              courseData?.courseDetails?.courseContent?.forEach((sec) => {
-                lectures += sec.subSection.length
-              })  
-              dispatch(setTotalNoOfLectures(lectures));
-        }
-        setCourseSpecificDetails();
-    },[]);
+    useEffect(() => {
+    const setCourseSpecificDetails = async () => {
+        const courseData = await getFullDetailsOfCourse(courseId, token);
+
+        dispatch(setCourseSectionData(courseData.courseDetails.courseContent));
+        dispatch(setEntireCourseData(courseData.courseDetails));
+        dispatch(setCompletedLectures(courseData.completedVideos));
+
+        let lectures = 0;
+
+        courseData?.courseDetails?.courseContent?.forEach((sec) => {
+            lectures += sec.subSection.length;
+        });
+
+        dispatch(setTotalNoOfLectures(lectures));
+    };
+
+    setCourseSpecificDetails();
+}, [courseId, dispatch, token]);
 
 
   return (

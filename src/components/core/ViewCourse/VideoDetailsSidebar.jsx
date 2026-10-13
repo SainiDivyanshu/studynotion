@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import IconBtn from '../../common/IconBtn';
@@ -34,7 +34,7 @@ const VideoDetailsSidebar = ({setReviewModal}) => {
             setVideoBarActive(activeSubSectionId);
         }
         setActiveFlags();
-    },[courseSectionData, courseEntireData, location.pathname])
+    },[courseSectionData, courseEntireData, location.pathname, sectionId ,subSectionId])
 
     const handleAddReview = () => {
         console.log("I am inside Add handleAddReview")

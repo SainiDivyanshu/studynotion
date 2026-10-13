@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import  { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { markLectureAsComplete } from '../../../services/operations/courseDetailsAPI';
@@ -48,7 +48,7 @@ const VideoDetails = () => {
     }
     setVideoSpecificDetails();
 
-  },[courseSectionData, courseEntireData, location.pathname])
+  },[courseSectionData, courseEntireData, location.pathname, courseId, navigate, sectionId, subSectionId])
 
   const isFirstVideo = () => {
     const currentSectionIndex = courseSectionData.findIndex(
@@ -120,13 +120,13 @@ const VideoDetails = () => {
         (data) => data._id === sectionId
     )
 
-    const noOfSubSections = courseSectionData[currentSectionIndex].subSection.length;
+    // const noOfSubSections = courseSectionData[currentSectionIndex].subSection.length;
 
     const currentSubSectionIndex = courseSectionData[currentSectionIndex].subSection.findIndex(
         (data) => data._id === subSectionId
     )
 
-    if(currentSubSectionIndex != 0 ) {
+    if(currentSubSectionIndex !== 0 ) {
         //same section , prev video
         const prevSubSectionId = courseSectionData[currentSectionIndex].subSection[currentSubSectionIndex - 1];
         //iss video par chalge jao

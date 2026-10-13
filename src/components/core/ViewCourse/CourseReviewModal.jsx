@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import  { useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { useSelector } from 'react-redux'
 import IconBtn from '../../common/IconBtn';
@@ -20,7 +20,7 @@ const CourseReviewModal = ({setReviewModal}) => {
     useEffect(()=> {
         setValue("courseExperience", "");
         setValue("courseRating", 0);
-    },[])
+    },[setValue])
 
     const ratingChanged = (newRating) => {
         setValue("courseRating", newRating);
@@ -57,7 +57,7 @@ const CourseReviewModal = ({setReviewModal}) => {
                 <div>
                     <img 
                         src={user?.image}
-                        alt='user Image'
+                        alt='userImage'
                         className='aspect-square  w-[50px] rounded-full object-cover'
                     />
                     <div>

@@ -6,7 +6,7 @@ import ReactMarkdown from "react-markdown";
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate, useParams } from "react-router-dom"
 import "./CourseDetailsCard.css";
-import CTAButton from "../components/core/HomePage/Button"
+// import CTAButton from "../components/core/HomePage/Button"
 
 import ConfirmationModal from "../components/common/ConfirmationModal"
 import Footer from "../components/common/Footer"
@@ -65,7 +65,7 @@ function CourseDetails() {
     setIsActive(
       !isActive.includes(id)
         ? isActive.concat([id])
-        : isActive.filter((e) => e != id)
+        : isActive.filter((e) => e !== id)
     )
   }
 
@@ -174,7 +174,7 @@ function CourseDetails() {
               </div>
             </div>
             <div className="flex w-full flex-col gap-4 border-y border-y-richblack-500 py-4 lg:hidden p-2">
-              <p className="space-x-3 pb-4 text-3xl font-semibold text-richblack-5 font-bold">
+              <p className="space-x-3 pb-4 text-3xl  text-richblack-5 font-bold">
                 Rs. {price}
               </p>
               {/* <CTAButton active={true} onClick={handleBuyCourse}>
