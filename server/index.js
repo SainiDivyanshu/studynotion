@@ -22,10 +22,13 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-	cors({
-		origin:"http://localhost:3000","https://studynotion-ceit-jet.vercel.app"
-		credentials:true,
-	})
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://studynotion-ceit-jet.vercel.app",
+    ],
+    credentials: true,
+  })
 )
 
 app.use(
