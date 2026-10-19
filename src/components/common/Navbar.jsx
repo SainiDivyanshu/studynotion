@@ -127,7 +127,7 @@ function Navbar() {
           {token === null && (
             <Link to="/login">
               <button className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">
-                Log in
+                Log in to
               </button>
             </Link>
           )}
