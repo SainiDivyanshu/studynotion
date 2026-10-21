@@ -141,67 +141,89 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-        <>
-  <button
-    className="mr-4 md:hidden"
-    onClick={() => setMobileMenu(!mobileMenu)}
-  >
-    <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-  </button>
+<button
+  className="mr-4 md:hidden"
+  onClick={() => setMobileMenu(!mobileMenu)}
+>
+  <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+</button>
 
-  {mobileMenu && (
-    <div className="absolute left-0 top-14 z-[1000] w-full bg-richblack-800 p-5 shadow-lg md:hidden">
-      <ul className="flex flex-col gap-5 text-richblack-25">
-        <li>
-          <Link
-            to="/catalog"
-            onClick={() => setMobileMenu(false)}
-          >
-            Courses
-          </Link>
-        </li>
+{mobileMenu && (
+  <div className="absolute left-0 top-14 z-[1000] w-full bg-richblack-800 p-5 shadow-lg md:hidden">
+    <ul className="flex flex-col gap-5 text-richblack-25">
+      {/* Courses */}
+      <li>
+        <p className="mb-3 font-semibold">Courses</p>
 
-        <li>
-          <Link
-            to="/about"
-            onClick={() => setMobileMenu(false)}
-          >
-            About
-          </Link>
-        </li>
+        <div className="flex flex-col gap-3 pl-3">
+          {loading ? (
+            <p>Loading...</p>
+          ) : subLinks.length > 0 ? (
+            subLinks
+              .filter((subLink) => subLink?.courses?.length > 0)
+              .map((subLink) => (
+                <Link
+                  key={subLink._id || subLink.name}
+                  to={`/catalog/${subLink.name
+                    .split(" ")
+                    .join("-")
+                    .toLowerCase()}`}
+                  onClick={() => setMobileMenu(false)}
+                  className="text-richblack-200 hover:text-yellow-25"
+                >
+                  {subLink.name}
+                </Link>
+              ))
+          ) : (
+            <p>No Courses Found</p>
+          )}
+        </div>
+      </li>
 
-        <li>
-          <Link
-            to="/contact"
-            onClick={() => setMobileMenu(false)}
-          >
-            Contact
-          </Link>
-        </li>
+      {/* About */}
+      <li>
+        <Link
+          to="/about"
+          onClick={() => setMobileMenu(false)}
+        >
+          About
+        </Link>
+      </li>
 
-        <li className="border-t border-richblack-700 pt-4">
-          <Link
-            to="/login"
-            onClick={() => setMobileMenu(false)}
-            className="block rounded-lg border border-richblack-600 px-4 py-2 text-center"
-          >
-            Log in
-          </Link>
-        </li>
+      {/* Contact */}
+      <li>
+        <Link
+          to="/contact"
+          onClick={() => setMobileMenu(false)}
+        >
+          Contact
+        </Link>
+      </li>
 
-        <li>
-          <Link
-            to="/signup"
-            onClick={() => setMobileMenu(false)}
-            className="block rounded-lg bg-yellow-50 px-4 py-2 text-center font-semibold text-richblack-900"
-          >
-            Sign up
-          </Link>
-        </li>
-      </ul>
-    </div>
-  )}
-</>
+      {/* Login */}
+      <li className="border-t border-richblack-700 pt-4">
+        <Link
+          to="/login"
+          onClick={() => setMobileMenu(false)}
+          className="block rounded-lg border border-richblack-600 px-4 py-2 text-center"
+        >
+          Log in
+        </Link>
+      </li>
+
+      {/* Signup */}
+      <li>
+        <Link
+          to="/signup"
+          onClick={() => setMobileMenu(false)}
+          className="block rounded-lg bg-yellow-50 px-4 py-2 text-center font-semibold text-richblack-900"
+        >
+          Sign up
+        </Link>
+      </li>
+    </ul>
+  </div>
+)}
       </div>
     </div>
   )
